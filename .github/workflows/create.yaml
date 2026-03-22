@@ -14,3 +14,6 @@ jobs:
         
       - name: run init
         run: terraform init # Initialize terraform
+
+      - name: run plan
+        run: terraform plan # Run terraform plan to see the execution plan
