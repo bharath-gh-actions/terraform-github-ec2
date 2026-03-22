@@ -24,3 +24,6 @@ jobs:
 
       - name: run plan
         run: terraform plan # Run terraform plan to see the execution plan
+
+      - name: run apply
+        run: terraform apply -auto-approve # Run terraform apply to create the resources without asking
