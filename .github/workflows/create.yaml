@@ -1,0 +1,16 @@
+name: ec2-creation # Name of your workflow
+
+on: [push] # The event that triggers the workflow
+
+jobs: 
+  terraform: # The ID of the job
+    runs-on: ubuntu-latest # The runner environment
+    steps:
+      - name: checkout the code
+        uses: actions/checkout@v6 # Action to checkout the code
+
+      - name: setup terraform
+        uses: hashicorp/setup-terraform@v3 # Action to setup terraform
+        
+      - name: run init
+        run: terraform init # Initialize terraform
