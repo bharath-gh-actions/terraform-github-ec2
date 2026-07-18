@@ -1,32 +1,29 @@
-# name: ec2-creation # Name of your workflow
+name: ec2-creation # Name of your workflow
 
-# on: [push] # The event that triggers the workflow
+on: [push] # The event that triggers the workflow
 
-# jobs: 
-#   terraform: # The ID of the job
-#     runs-on: ubuntu-latest # The runner environment
-#     steps:
-#       - name: checkout the code
-#         uses: actions/checkout@v6 # Action to checkout the code
+jobs: 
+  terraform: # The ID of the job
+    runs-on: ubuntu-latest # The runner environment
+    steps:
+      - name: checkout the code
+        uses: actions/checkout@v6 # Action to checkout the code
 
-#       - name: setup terraform
-#         uses: hashicorp/setup-terraform@v3 # Action to setup terraform
+      - name: setup terraform
+        uses: hashicorp/setup-terraform@v3 # Action to setup terraform
         
-#       - name: run init
-#         run: terraform init # Initialize terraform
+      - name: run init
+        run: terraform init # Initialize terraform
 
-#       - name: configure AWS credentials
-#         uses: aws-actions/configure-aws-credentials@v4 # Action to configure AWS credentials
-#         with:
-#           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} # AWS Access Key ID from secrets
-#           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # AWS Secret Access Key from secrets
-#           aws-region: us-east-1 # AWS Region
+      - name: configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4 # Action to configure AWS credentials
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} # AWS Access Key ID from secrets
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # AWS Secret Access Key from secrets
+          aws-region: us-east-1 # AWS Region
 
-#       - name: run plan
-#         run: terraform plan # Run terraform plan to see the execution plan
+      - name: run plan
+        run: terraform plan # Run terraform plan to see the execution plan
 
-#       - name: run apply
-#         run: terraform apply -auto-approve # Run terraform apply to create the resources without asking
-        
-        - name: Terraform Destroy
-          run: terraform destroy -auto-approve
+      - name: run apply
+        run: terraform apply -auto-approve # Run terraform apply to create the resources without asking
