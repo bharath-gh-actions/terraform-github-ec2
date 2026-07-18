@@ -28,5 +28,5 @@
 #       - name: run apply
 #         run: terraform apply -auto-approve # Run terraform apply to create the resources without asking
         
-      - name: Terraform Destroy
-        run: terraform destroy -auto-approve
+        - name: Terraform Destroy
+          run: terraform destroy -auto-approve
